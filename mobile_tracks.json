@@ -1,0 +1,510 @@
+{
+  "AB1BL": [
+    {
+      "timestamp": "2025-10-18 1738",
+      "county": "SCU/TOM"
+    },
+    {
+      "timestamp": "2025-10-18 2043",
+      "county": "SEN"
+    },
+    {
+      "timestamp": "2025-10-18 2043",
+      "county": "TOM"
+    },
+    {
+      "timestamp": "2025-10-18 2045",
+      "county": "SEN"
+    },
+    {
+      "timestamp": "2025-10-18 2045",
+      "county": "TOM"
+    },
+    {
+      "timestamp": "2025-10-18 2051",
+      "county": "SEN"
+    },
+    {
+      "timestamp": "2025-10-18 2051",
+      "county": "TOM"
+    },
+    {
+      "timestamp": "2025-10-18 2100",
+      "county": "SEN"
+    },
+    {
+      "timestamp": "2025-10-18 2104",
+      "county": "TOM"
+    },
+    {
+      "timestamp": "2025-10-18 2104",
+      "county": "SEN"
+    }
+  ],
+  "K2A": [
+    {
+      "timestamp": "2025-10-18 1400",
+      "county": "SCU"
+    },
+    {
+      "timestamp": "2025-10-18 1411",
+      "county": "CHE"
+    },
+    {
+      "timestamp": "2025-10-18 1446",
+      "county": "TIO"
+    },
+    {
+      "timestamp": "2025-10-18 1519",
+      "county": "BRM"
+    },
+    {
+      "timestamp": "2025-10-18 1556",
+      "county": "DEL"
+    },
+    {
+      "timestamp": "2025-10-18 1631",
+      "county": "SUL"
+    },
+    {
+      "timestamp": "2025-10-18 1725",
+      "county": "ORA"
+    },
+    {
+      "timestamp": "2025-10-18 1804",
+      "county": "ULS"
+    },
+    {
+      "timestamp": "2025-10-18 1818",
+      "county": "DUT"
+    },
+    {
+      "timestamp": "2025-10-18 1910",
+      "county": "COL"
+    },
+    {
+      "timestamp": "2025-10-18 1947",
+      "county": "REN"
+    },
+    {
+      "timestamp": "2025-10-18 2001",
+      "county": "ALB"
+    },
+    {
+      "timestamp": "2025-10-18 2015",
+      "county": "SAR"
+    },
+    {
+      "timestamp": "2025-10-18 2036",
+      "county": "REN"
+    },
+    {
+      "timestamp": "2025-10-18 2037",
+      "county": "WAS"
+    },
+    {
+      "timestamp": "2025-10-18 2101",
+      "county": "REN"
+    },
+    {
+      "timestamp": "2025-10-18 2103",
+      "county": "SAR"
+    },
+    {
+      "timestamp": "2025-10-18 2129",
+      "county": "SCH"
+    },
+    {
+      "timestamp": "2025-10-18 2205",
+      "county": "SCO"
+    },
+    {
+      "timestamp": "2025-10-18 2241",
+      "county": "OTS"
+    },
+    {
+      "timestamp": "2025-10-18 2255",
+      "county": "HER"
+    },
+    {
+      "timestamp": "2025-10-18 2259",
+      "county": "OTS"
+    },
+    {
+      "timestamp": "2025-10-18 2310",
+      "county": "HER"
+    },
+    {
+      "timestamp": "2025-10-18 2318",
+      "county": "ONE"
+    },
+    {
+      "timestamp": "2025-10-18 2332",
+      "county": "MAD"
+    },
+    {
+      "timestamp": "2025-10-19 0005",
+      "county": "ONO"
+    },
+    {
+      "timestamp": "2025-10-19 0043",
+      "county": "COR"
+    },
+    {
+      "timestamp": "2025-10-19 0107",
+      "county": "TOM"
+    },
+    {
+      "timestamp": "2025-10-19 0142",
+      "county": "SCU"
+    }
+  ],
+  "K2G": [
+    {
+      "timestamp": "2025-10-18 1412",
+      "county": "DEL/GRE"
+    }
+  ],
+  "K2Q": [
+    {
+      "timestamp": "2025-10-18 1402",
+      "county": "ORL/NIA"
+    },
+    {
+      "timestamp": "2025-10-18 1555",
+      "county": "MON/GEN"
+    },
+    {
+      "timestamp": "2025-10-18 1824",
+      "county": "LIV/ONT"
+    },
+    {
+      "timestamp": "2025-10-18 2005",
+      "county": "YAT/STE"
+    },
+    {
+      "timestamp": "2025-10-18 2254",
+      "county": "ALL/CAT"
+    },
+    {
+      "timestamp": "2025-10-19 0113",
+      "county": "ERI/WYO"
+    }
+  ],
+  "K2V": [
+    {
+      "timestamp": "2025-10-18 1401",
+      "county": "YAT"
+    },
+    {
+      "timestamp": "2025-10-18 1438",
+      "county": "ONT"
+    },
+    {
+      "timestamp": "2025-10-18 1504",
+      "county": "SEN"
+    },
+    {
+      "timestamp": "2025-10-18 1518",
+      "county": "CAY"
+    },
+    {
+      "timestamp": "2025-10-18 1633",
+      "county": "ONO"
+    },
+    {
+      "timestamp": "2025-10-18 1654",
+      "county": "OSW"
+    },
+    {
+      "timestamp": "2025-10-18 1725",
+      "county": "JEF"
+    },
+    {
+      "timestamp": "2025-10-18 1841",
+      "county": "LEW"
+    },
+    {
+      "timestamp": "2025-10-18 2121",
+      "county": "STL"
+    },
+    {
+      "timestamp": "2025-10-18 2150",
+      "county": "LEW"
+    },
+    {
+      "timestamp": "2025-10-18 2202",
+      "county": "JEF"
+    },
+    {
+      "timestamp": "2025-10-18 2237",
+      "county": "LEW"
+    },
+    {
+      "timestamp": "2025-10-18 2320",
+      "county": "ONE"
+    },
+    {
+      "timestamp": "2025-10-19 0021",
+      "county": "MAD"
+    },
+    {
+      "timestamp": "2025-10-19 0035",
+      "county": "ONO"
+    },
+    {
+      "timestamp": "2025-10-19 0130",
+      "county": "CAY"
+    },
+    {
+      "timestamp": "2025-10-19 0140",
+      "county": "SEN"
+    },
+    {
+      "timestamp": "2025-10-19 0157",
+      "county": "ONT"
+    }
+  ],
+  "KQ2R": [
+    {
+      "timestamp": "2025-10-18 1427",
+      "county": "BRX/WES"
+    },
+    {
+      "timestamp": "2025-10-18 1816",
+      "county": "PUT"
+    },
+    {
+      "timestamp": "2025-10-18 2028",
+      "county": "DUT"
+    },
+    {
+      "timestamp": "2025-10-18 2214",
+      "county": "COL"
+    }
+  ],
+  "KV2X/M": [
+    {
+      "timestamp": "2025-10-18 1453",
+      "county": "ONE"
+    },
+    {
+      "timestamp": "2025-10-18 1616",
+      "county": "MAD"
+    },
+    {
+      "timestamp": "2025-10-18 1819",
+      "county": "ONO"
+    },
+    {
+      "timestamp": "2025-10-18 1931",
+      "county": "CAY"
+    },
+    {
+      "timestamp": "2025-10-18 2050",
+      "county": "SEN"
+    },
+    {
+      "timestamp": "2025-10-18 2158",
+      "county": "MON"
+    },
+    {
+      "timestamp": "2025-10-18 2158",
+      "county": "WAY"
+    }
+  ],
+  "N1GBE": [
+    {
+      "timestamp": "2025-10-18 1406",
+      "county": "DUT"
+    }
+  ],
+  "N2B": [
+    {
+      "timestamp": "2025-10-18 1425",
+      "county": "FRA/CLI"
+    },
+    {
+      "timestamp": "2025-10-18 1742",
+      "county": "ESS"
+    },
+    {
+      "timestamp": "2025-10-18 2033",
+      "county": "HAM"
+    },
+    {
+      "timestamp": "2025-10-18 2300",
+      "county": "FRA"
+    }
+  ],
+  "N2CU": [
+    {
+      "timestamp": "2025-10-18 1400",
+      "county": "CHA/CAT"
+    },
+    {
+      "timestamp": "2025-10-18 1557",
+      "county": "WYO/ERI"
+    },
+    {
+      "timestamp": "2025-10-18 1806",
+      "county": "ALL/LIV"
+    },
+    {
+      "timestamp": "2025-10-18 2033",
+      "county": "ONT/STE"
+    },
+    {
+      "timestamp": "2025-10-18 2300",
+      "county": "GEN/MON"
+    },
+    {
+      "timestamp": "2025-10-19 0108",
+      "county": "ORL/NIA"
+    }
+  ],
+  "N2T": [
+    {
+      "timestamp": "2025-10-18 1401",
+      "county": "SCU"
+    },
+    {
+      "timestamp": "2025-10-18 1413",
+      "county": "TOM"
+    },
+    {
+      "timestamp": "2025-10-18 1446",
+      "county": "SEN"
+    },
+    {
+      "timestamp": "2025-10-18 1536",
+      "county": "CAY"
+    },
+    {
+      "timestamp": "2025-10-18 1614",
+      "county": "OSW"
+    },
+    {
+      "timestamp": "2025-10-18 1640",
+      "county": "ONO"
+    },
+    {
+      "timestamp": "2025-10-18 1721",
+      "county": "MAD"
+    },
+    {
+      "timestamp": "2025-10-18 1745",
+      "county": "ONE"
+    },
+    {
+      "timestamp": "2025-10-18 1818",
+      "county": "HER"
+    },
+    {
+      "timestamp": "2025-10-18 1912",
+      "county": "FUL"
+    },
+    {
+      "timestamp": "2025-10-18 1948",
+      "county": "MTG"
+    },
+    {
+      "timestamp": "2025-10-18 2019",
+      "county": "SCO"
+    },
+    {
+      "timestamp": "2025-10-18 2045",
+      "county": "OTS"
+    },
+    {
+      "timestamp": "2025-10-18 2117",
+      "county": "DEL"
+    },
+    {
+      "timestamp": "2025-10-18 2129",
+      "county": "CHE"
+    },
+    {
+      "timestamp": "2025-10-18 2130",
+      "county": "CGO"
+    },
+    {
+      "timestamp": "2025-10-18 2156",
+      "county": "BRM"
+    },
+    {
+      "timestamp": "2025-10-18 2227",
+      "county": "TIO"
+    },
+    {
+      "timestamp": "2025-10-18 2252",
+      "county": "CHE"
+    },
+    {
+      "timestamp": "2025-10-18 2314",
+      "county": "STE"
+    },
+    {
+      "timestamp": "2025-10-19 0003",
+      "county": "ONT"
+    },
+    {
+      "timestamp": "2025-10-19 0043",
+      "county": "YAT"
+    },
+    {
+      "timestamp": "2025-10-19 0134",
+      "county": "SCU"
+    }
+  ],
+  "W1WV/M": [
+    {
+      "timestamp": "2025-10-18 1418",
+      "county": "ALB"
+    },
+    {
+      "timestamp": "2025-10-18 1454",
+      "county": "SCO"
+    },
+    {
+      "timestamp": "2025-10-18 1625",
+      "county": "DEL"
+    },
+    {
+      "timestamp": "2025-10-18 1845",
+      "county": "GRE"
+    },
+    {
+      "timestamp": "2025-10-18 1949",
+      "county": "ULS/GRE"
+    },
+    {
+      "timestamp": "2025-10-18 2200",
+      "county": "SUL"
+    },
+    {
+      "timestamp": "2025-10-18 2356",
+      "county": "ULS"
+    },
+    {
+      "timestamp": "2025-10-19 0046",
+      "county": "SCH"
+    }
+  ],
+  "WI2M": [
+    {
+      "timestamp": "2025-10-18 1413",
+      "county": "SUF"
+    },
+    {
+      "timestamp": "2025-10-18 2213",
+      "county": "NAS"
+    }
+  ],
+  "WT2X": [
+    {
+      "timestamp": "2025-10-18 1618",
+      "county": "CAT"
+    }
+  ]
+}
