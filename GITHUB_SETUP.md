@@ -39,22 +39,63 @@ git remote add origin https://github.com/mgilmer/nyqp-2025-maps.git
 
 ### 5. Push to GitHub
 
-```bash
-git push -u origin main
-```
+**Important:** GitHub requires either a Personal Access Token (PAT) or SSH key. Passwords no longer work.
 
-You'll be prompted for your GitHub credentials:
-- Username: your GitHub username
-- Password: use a **Personal Access Token** (not your password)
+#### Option A: Using Personal Access Token (Recommended for HTTPS)
 
-#### Creating a Personal Access Token:
+First, create a token:
 1. Go to https://github.com/settings/tokens
 2. Click "Generate new token" → "Generate new token (classic)"
 3. Give it a name: "NYQP Maps CLI"
 4. Select scopes: check `repo` (full control of private repositories)
 5. Click "Generate token"
 6. **Copy the token immediately** (you won't see it again)
-7. Use this token as your password when pushing
+
+Then push:
+```bash
+git push -u origin main
+```
+
+When prompted for username/password:
+- Username: your GitHub username
+- Password: paste your Personal Access Token
+
+To avoid entering it every time, cache it:
+```bash
+git config --global credential.helper cache
+# Or store permanently (less secure):
+git config --global credential.helper store
+```
+
+#### Option B: Using SSH (No password needed)
+
+1. Generate SSH key:
+```bash
+ssh-keygen -t ed25519 -C "your.email@example.com"
+# Press Enter to accept default location
+# Optionally set a passphrase
+```
+
+2. Copy public key:
+```bash
+cat ~/.ssh/id_ed25519.pub
+```
+
+3. Add to GitHub:
+   - Go to https://github.com/settings/keys
+   - Click "New SSH key"
+   - Paste the key, give it a title
+   - Click "Add SSH key"
+
+4. Change remote to SSH:
+```bash
+git remote set-url origin git@github.com:YOUR_USERNAME/REPO_NAME.git
+```
+
+5. Push:
+```bash
+git push -u origin main
+```
 
 ## Future Pushes
 
@@ -81,27 +122,6 @@ https://github.com/YOUR_USERNAME/REPO_NAME
 ```
 
 You should see all your files and commit history.
-
-## Using SSH Instead (Optional)
-
-If you prefer SSH over HTTPS:
-
-1. Generate SSH key (if you don't have one):
-```bash
-ssh-keygen -t ed25519 -C "your.email@example.com"
-```
-
-2. Add to GitHub: https://github.com/settings/keys
-
-3. Change remote URL:
-```bash
-git remote set-url origin git@github.com:YOUR_USERNAME/REPO_NAME.git
-```
-
-4. Push:
-```bash
-git push -u origin main
-```
 
 ## Troubleshooting
 
