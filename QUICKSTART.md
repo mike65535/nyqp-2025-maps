@@ -28,13 +28,46 @@ cp /path/to/your/*.log logs/
 
 Download GeoJSON for your state's counties:
 
-**For New York:**
-- Already included: `ny-counties-boundaries.json`
+**Option 1: US Census Bureau (Most Reliable)**
+```bash
+# Download 500k resolution (good balance of detail/size)
+wget https://www2.census.gov/geo/tiger/GENZ2022/shp/cb_2022_us_county_500k.zip
+unzip cb_2022_us_county_500k.zip
 
-**For other states:**
-- Download from: https://github.com/plotly/datasets/blob/master/geojson-counties-fips.json
-- Or use: https://eric.clst.org/tech/usgeojson/
-- Save as: `output/STATE-counties-boundaries.json`
+# Convert shapefile to GeoJSON (requires ogr2ogr)
+ogr2ogr -f GeoJSON -where "STATEFP='36'" ny-counties.json cb_2022_us_county_500k.shp
+# Replace '36' with your state FIPS code (NY=36, CA=06, TX=48, etc.)
+```
+
+**Option 2: Pre-made GeoJSON (Easiest)**
+- Eric Celeste's collection: https://eric.clst.org/tech/usgeojson/
+- Click your state → Download GeoJSON
+- Save as `output/STATE-counties-boundaries.json`
+
+**Option 3: Natural Earth Data**
+```bash
+# Download from: https://www.naturalearthdata.com/downloads/10m-cultural-vectors/
+# Get "Admin 2 – Counties" dataset
+```
+
+**Option 4: GitHub Sources**
+- Plotly datasets: https://github.com/plotly/datasets/tree/master
+- Look for state-specific county files
+
+**For New York (already included):**
+- File: `ny-counties-boundaries.json` (already in repo)
+- No download needed
+
+**State FIPS Codes (for Census data):**
+- NY = 36, CA = 06, TX = 48, FL = 12, PA = 42
+- Full list: https://www.census.gov/library/reference/code-lists/ansi.html
+
+**Verify your GeoJSON:**
+```bash
+# Check it has county features
+head -20 your-counties.json
+# Should see "type": "FeatureCollection" and county names
+```
 
 ### 3. Identify Mobile Stations
 
