@@ -21,11 +21,14 @@
         #loading { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 20px; z-index: 2000; background: white; padding: 20px; border-radius: 10px; }
         
         @media (max-width: 768px) {
-            #controls { height: 120px; padding: 10px; font-size: 14px; }
+            #controls { height: 140px; padding: 10px; font-size: 16px; }
             #time-display { font-size: 18px; }
-            .control-btn { padding: 8px 12px; margin: 2px; font-size: 12px; }
+            .control-btn { padding: 12px 16px; margin: 4px; font-size: 16px; }
             .mobile-marker { font-size: 36px; }
-            #map { bottom: 120px; }
+            #map { bottom: 140px; }
+            #county-filter { padding: 10px; font-size: 16px; }
+            /* Hide some buttons on mobile */
+            .mobile-hide { display: none; }
         }
         
         .leaflet-popup-content { font-size: 16px !important; min-width: 250px !important; }
@@ -45,10 +48,10 @@
                 <button id="play-pause-btn" class="control-btn">▶ Play</button>
                 <button id="reset-btn" class="control-btn">↺ Reset</button>
                 <span style="margin-left: 20px;">Speed:</span>
-                <button class="control-btn" onclick="setSpeed(100)">100x</button>
+                <button class="control-btn mobile-hide" onclick="setSpeed(100)">100x</button>
                 <button class="control-btn" onclick="setSpeed(500)">500x</button>
                 <button class="control-btn active" onclick="setSpeed(1000)">1000x</button>
-                <button class="control-btn" onclick="setSpeed(2000)">2000x</button>
+                <button class="control-btn mobile-hide" onclick="setSpeed(2000)">2000x</button>
                 <span style="margin-left: 20px;">Show:</span>
                 <select id="county-filter" onchange="filterMobiles()" style="padding: 8px; font-size: 14px; border-radius: 5px; border: none;">
                     <option value="0">ALL</option>
@@ -654,20 +657,20 @@
             nyLayer.bringToFront();
 
             const mobileConfig = {
-                'AB1BL': {icon: '🚙', color: 'red'},
-                'K2A': {icon: '🚐', color: 'blue'},
-                'K2G': {icon: '🛻', color: 'green'},
-                'K2Q': {icon: '🚗', color: 'orange'},
-                'K2V': {icon: '🚕', color: 'yellow'},
-                'KQ2R': {icon: '🚌', color: 'purple'},
-                'KV2X/M': {icon: '🚎', color: 'brown'},
-                'N1GBE': {icon: '🚓', color: 'cyan'},
-                'N2B': {icon: '🚑', color: 'pink'},
-                'N2CU': {icon: '🚒', color: 'darkred'},
-                'N2T': {icon: '🚚', color: 'gray'},
-                'W1WV/M': {icon: '🚛', color: 'darkblue'},
-                'WI2M': {icon: '🚜', color: 'darkgreen'},
-                'WT2X': {icon: '🏎️', color: 'black'}
+                'AB1BL': {icon: '🚙', color: 'red', darkColor: 'darkred'},
+                'K2A': {icon: '🚐', color: 'blue', darkColor: 'darkblue'},
+                'K2G': {icon: '🛻', color: 'green', darkColor: 'darkgreen'},
+                'K2Q': {icon: '🚗', color: 'orange', darkColor: 'darkorange'},
+                'K2V': {icon: '🚕', color: 'yellow', darkColor: 'goldenrod'},
+                'KQ2R': {icon: '🚌', color: 'purple', darkColor: 'indigo'},
+                'KV2X/M': {icon: '🚎', color: 'brown', darkColor: 'saddlebrown'},
+                'N1GBE': {icon: '🚓', color: 'cyan', darkColor: 'darkcyan'},
+                'N2B': {icon: '🚑', color: 'pink', darkColor: 'deeppink'},
+                'N2CU': {icon: '🚒', color: 'darkred', darkColor: 'maroon'},
+                'N2T': {icon: '🚚', color: 'gray', darkColor: 'dimgray'},
+                'W1WV/M': {icon: '🚛', color: 'darkblue', darkColor: 'navy'},
+                'WI2M': {icon: '🚜', color: 'darkgreen', darkColor: 'forestgreen'},
+                'WT2X': {icon: '🏎️', color: 'black', darkColor: 'black'}
             };
 
             Object.keys(mobileConfig).forEach(call => {
@@ -689,7 +692,7 @@
                     if (coords) {
                         const marker = L.marker([coords[0], coords[1]], {
                             icon: L.divIcon({
-                                html: `<div class="mobile-marker">${mobileConfig[call].icon}</div><div style="text-align:center; font-size:10px; font-weight:bold; color:${mobileConfig[call].color}; text-shadow: 1px 1px 2px white;">${call}</div>`,
+                                html: `<div class="mobile-marker">${mobileConfig[call].icon}</div><div style="text-align:center; font-size:10px; font-weight:bold; color:${mobileConfig[call].darkColor}; text-shadow: 1px 1px 2px white;">${call.replace('/M', '')}</div>`,
                                 className: '',
                                 iconSize: [40, 40]
                             }),
