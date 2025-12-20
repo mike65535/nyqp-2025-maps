@@ -10,9 +10,9 @@
     <style>
         body { margin: 0; padding: 0; font-family: Arial, sans-serif; }
         #map { position: absolute; top: 0; bottom: 157px; left: 0; right: 0; background: white; }
-        #info-banner { position: absolute; bottom: 125px; left: 0; right: 0; height: 32px; background: #34495e; color: white; z-index: 1001; display: flex; }
-        #title-area { flex: 1; padding: 4px 15px; display: flex; align-items: center; justify-content: flex-start; }
-        #qso-area { flex: 1; padding: 4px 15px; display: flex; align-items: center; justify-content: flex-end; }
+        #info-banner { position: absolute; bottom: 125px; left: 0; right: 0; height: 32px; background: #34495e; color: white; z-index: 1001; display: flex; align-items: center; padding: 4px 15px; }
+        #time-display { flex: 0 0 auto; }
+        #qso-counter { flex: 0 0 auto; margin-left: auto; }
         #mobile-controls { position: absolute; bottom: 100px; left: 0; right: 0; height: 80px; background: #2c3e50; color: white; padding: 15px 10px; z-index: 1000; display: none !important; }
         #controls { position: absolute; bottom: 0px; left: 0; right: 0; height: 100px; background: #2c3e50; color: white; padding: 15px; z-index: 1000; display: block; }
         #status-bar { display: none; }
@@ -51,13 +51,9 @@
 <body>
     <div id="loading">Loading contest data...</div>
     <div id="map"></div>
-    <div id="info-banner" style="display:none;">
-        <div id="title-area">
-            <span id="time-display">NYQP 2025</span>
-        </div>
-        <div id="qso-area">
-            <span id="qso-counter">QSOs: 0</span>
-        </div>
+    <div id="info-banner">
+        <span id="time-display">NYQP 2025</span>
+        <span id="qso-counter">QSOs: 0</span>
     </div>
     <div id="mobile-controls">
         <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 8px;">
