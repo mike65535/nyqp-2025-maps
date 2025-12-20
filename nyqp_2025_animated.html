@@ -10,7 +10,7 @@
     <style>
         body { margin: 0; padding: 0; font-family: Arial, sans-serif; }
         #map { position: absolute; top: 0; bottom: 153px; left: 0; right: 0; background: white; }
-        #info-banner { position: absolute; bottom: 125px; left: 0; right: 0; height: 28px; background: #34495e; color: white; padding: 2px 15px; z-index: 1001; display: flex; align-items: center; justify-content: space-between; }
+        #info-banner { position: absolute; bottom: 125px; left: 0; right: 0; height: 28px; background: #34495e; color: white; padding: 2px 15px; z-index: 1001; display: flex; align-items: center; justify-content: center; }
         #mobile-controls { position: absolute; bottom: 100px; left: 0; right: 0; height: 80px; background: #2c3e50; color: white; padding: 15px 10px; z-index: 1000; display: none !important; }
         #controls { position: absolute; bottom: 0px; left: 0; right: 0; height: 100px; background: #2c3e50; color: white; padding: 15px; z-index: 1000; display: block; }
         #status-bar { display: none; }
@@ -51,7 +51,7 @@
     <div id="map"></div>
     <div id="info-banner" style="display:none;">
         <span id="time-display">NYQP 2025</span>
-        <span id="qso-counter">QSOs: 0</span>
+        <span id="qso-counter" style="margin-left: 40px;">QSOs: 0</span>
     </div>
     <div id="mobile-controls">
         <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 8px;">
