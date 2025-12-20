@@ -712,16 +712,28 @@
                 const baseSize = window.innerWidth <= 768 ? 48 : 32;
                 const scaleFactor = Math.pow(1.3, zoom - 7);
                 const newSize = Math.max(16, Math.min(80, baseSize * scaleFactor));
+                const iconSize = Math.max(30, Math.min(60, newSize + 10)); // Icon container size
                 
-                // Update all mobile marker elements directly
-                const markers = document.querySelectorAll('.mobile-marker');
-                markers.forEach(marker => {
-                    marker.style.fontSize = newSize + 'px';
-                    // Also try updating the parent leaflet marker
-                    const leafletMarker = marker.closest('.leaflet-marker-icon');
-                    if (leafletMarker) {
-                        leafletMarker.style.fontSize = newSize + 'px';
-                    }
+                // Recreate all mobile markers with new size
+                Object.keys(mobileMarkers).forEach(call => {
+                    const marker = mobileMarkers[call].marker;
+                    const currentLatLng = marker.getLatLng();
+                    
+                    // Remove old marker
+                    marker.remove();
+                    
+                    // Create new marker with updated size
+                    const newMarker = L.marker(currentLatLng, {
+                        icon: L.divIcon({
+                            html: `<div class="mobile-marker" style="font-size:${newSize}px">${mobileConfig[call].icon}</div><div style="text-align:center; font-size:10px; font-weight:bold; color:black; text-shadow: 1px 1px 2px white;">${call.replace('/M', '')}</div>`,
+                            className: '',
+                            iconSize: [iconSize, iconSize]
+                        }),
+                        zIndexOffset: 1000
+                    }).addTo(map);
+                    
+                    // Update reference
+                    mobileMarkers[call].marker = newMarker;
                 });
             }
             
