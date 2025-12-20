@@ -68,7 +68,8 @@ class MapBuilder:
         
         # Count QSOs per county
         county_counts = {}
-        for timestamp, county in self.timeline_data:
+        for qso in self.timeline_data:
+            county = qso['county']
             county_counts[county] = county_counts.get(county, 0) + 1
         
         html = f"""<!DOCTYPE html>
