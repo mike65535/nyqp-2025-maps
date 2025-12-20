@@ -22,7 +22,7 @@
         #loading { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 20px; z-index: 2000; background: white; padding: 20px; border-radius: 10px; }
         
         @media (max-width: 768px) {
-            #controls { height: 160px; padding: 12px; font-size: 16px; }
+            #controls { height: 160px; padding: 12px; font-size: 16px; background: #1a252f !important; }
             #controls > div:first-child { 
                 flex-direction: column; 
                 align-items: flex-start !important; 
@@ -37,6 +37,7 @@
                 justify-content: center;
             }
             #time-display { font-size: 16px; }
+            #time-display:after { content: " (MOBILE)"; color: yellow; }
             .control-btn { padding: 12px 18px; margin: 2px; font-size: 16px; }
             .mobile-marker { font-size: 36px; }
             #map { bottom: 160px; }
