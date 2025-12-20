@@ -8,28 +8,33 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <style>
         body { margin: 0; padding: 0; font-family: Arial, sans-serif; }
-        #map { position: absolute; top: 0; bottom: 100px; left: 0; right: 0; background: white; }
-        #controls { position: absolute; bottom: 0; left: 0; right: 0; height: 100px; background: #2c3e50; color: white; padding: 15px; z-index: 1000; }
+        #map { position: absolute; top: 0; bottom: 120px; left: 0; right: 0; background: white; }
+        #controls { position: absolute; bottom: 0; left: 0; right: 0; height: 120px; background: #2c3e50; color: white; padding: 15px; z-index: 1000; }
         #timeline { width: 100%; margin-bottom: 10px; }
-        .control-btn { background: #3498db; border: none; color: white; padding: 12px 24px; margin: 0 5px; cursor: pointer; border-radius: 5px; font-size: 16px; font-weight: bold; }
+        .control-btn { background: #3498db; border: none; color: white; padding: 16px 28px; margin: 0 6px; cursor: pointer; border-radius: 5px; font-size: 18px; font-weight: bold; }
         .control-btn:hover { background: #2980b9; }
         .control-btn:disabled { background: #7f8c8d; cursor: not-allowed; }
         .control-btn.active { background: #27ae60; }
-        #play-pause-btn { padding: 10px 15px; min-width: 110px; }
+        #play-pause-btn { padding: 16px 20px; min-width: 120px; }
         #time-display { font-size: 24px; font-weight: bold; margin-bottom: 10px; }
         .mobile-marker { font-size: 32px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); }
         #loading { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 20px; z-index: 2000; background: white; padding: 20px; border-radius: 10px; }
         
         @media (max-width: 768px) {
-            #controls { height: 140px; padding: 8px; font-size: 16px; }
-            #time-display { font-size: 16px; }
-            .control-btn { padding: 14px 20px; margin: 2px; font-size: 16px; }
+            #controls { height: 180px; padding: 15px; font-size: 18px; }
+            #time-display { font-size: 18px; margin-bottom: 15px; }
+            .control-btn { padding: 20px 30px; margin: 4px; font-size: 20px; }
             .mobile-marker { font-size: 36px; }
-            #map { bottom: 140px; }
-            #county-filter, #speed-select { padding: 10px; font-size: 14px; margin: 0 2px; }
-            /* Tighter spacing on mobile */
-            #controls > div > div { margin-left: 10px !important; }
-            #controls span { margin-left: 10px !important; margin-right: 5px; }
+            #map { bottom: 180px; }
+            #county-filter, #speed-select { padding: 15px; font-size: 18px; margin: 4px; border-radius: 8px; }
+            /* Stack controls vertically on mobile for more space */
+            #controls > div:first-child { margin-bottom: 15px; }
+            #controls > div:last-child { 
+                display: flex; 
+                flex-wrap: wrap; 
+                justify-content: center; 
+                gap: 8px; 
+            }
         }
         
         .leaflet-popup-content { font-size: 16px !important; min-width: 250px !important; }
