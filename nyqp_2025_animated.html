@@ -22,26 +22,9 @@
         #loading { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 20px; z-index: 2000; background: white; padding: 20px; border-radius: 10px; }
         
         @media (max-width: 768px) {
-            #controls { height: 160px; padding: 12px; font-size: 16px; background: #1a252f !important; }
-            #controls > div:first-child { 
-                flex-direction: column; 
-                align-items: flex-start !important; 
-                justify-content: flex-start !important;
-            }
-            #controls > div:first-child > div:first-child { 
-                margin-bottom: 10px; 
-                width: 100%;
-            }
-            #controls > div:first-child > div:last-child { 
-                width: 100%; 
-                justify-content: center;
-            }
-            #time-display { font-size: 16px; }
-            #time-display:after { content: " (MOBILE)"; color: yellow; }
-            .control-btn { padding: 12px 18px; margin: 2px; font-size: 16px; }
+            .control-btn { padding: 14px 20px; margin: 3px; font-size: 16px; }
             .mobile-marker { font-size: 36px; }
-            #map { bottom: 160px; }
-            #county-filter, #speed-select { padding: 10px; font-size: 15px; margin: 2px; border-radius: 6px; }
+            #county-filter, #speed-select { padding: 10px; font-size: 15px; }
         }
         
         .leaflet-popup-content { font-size: 16px !important; min-width: 250px !important; }
@@ -52,12 +35,12 @@
     <div id="loading">Loading contest data...</div>
     <div id="map"></div>
     <div id="controls" style="display:none;">
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; flex-wrap: wrap;">
-            <div style="margin-bottom: 10px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+            <div>
                 <span id="time-display">NYQP 2025</span>
                 <span id="qso-counter" style="margin-left: 20px; font-size: 16px;">QSOs: 0</span>
             </div>
-            <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 8px;">
+            <div>
                 <button id="play-pause-btn" class="control-btn">▶ Play</button>
                 <button id="reset-btn" class="control-btn">↺ Reset</button>
                 <span style="margin-left: 15px;">Speed:</span>
