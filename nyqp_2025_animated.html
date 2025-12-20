@@ -9,8 +9,11 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <style>
         body { margin: 0; padding: 0; font-family: Arial, sans-serif; }
-        #map { position: absolute; top: 0; bottom: 120px; left: 0; right: 0; background: white; }
-        #controls { position: absolute; bottom: 0; left: 0; right: 0; height: 120px; background: #2c3e50; color: white; padding: 15px; z-index: 1000; }
+        #map { position: absolute; top: 0; bottom: 160px; left: 0; right: 0; background: white; }
+        #info-banner { position: absolute; bottom: 170px; left: 0; right: 0; height: 28px; background: #34495e; color: white; padding: 2px 15px; z-index: 1001; display: flex; align-items: center; justify-content: center; }
+        #mobile-controls { position: absolute; bottom: 100px; left: 0; right: 0; height: 80px; background: #2c3e50; color: white; padding: 15px 10px; z-index: 1000; display: none; }
+        #controls { position: absolute; bottom: 0px; left: 0; right: 0; height: 100px; background: #2c3e50; color: white; padding: 15px; z-index: 1000; display: block; }
+        #status-bar { display: none; }
         #timeline { width: 100%; margin-bottom: 10px; }
         .control-btn { background: #3498db; border: none; color: white; padding: 16px 28px; margin: 0 6px; cursor: pointer; border-radius: 5px; font-size: 18px; font-weight: bold; }
         .control-btn:hover { background: #2980b9; }
@@ -21,10 +24,19 @@
         .mobile-marker { font-size: 32px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); }
         
         @media (max-width: 768px) {
-            #controls { height: 100px; padding: 10px; }
-            #map { bottom: 100px; }
-            .control-btn { padding: 10px 16px; margin: 2px; font-size: 14px; }
-            #county-filter, #speed-select { padding: 8px; font-size: 14px; }
+            #controls { display: none !important; }
+            #mobile-controls { display: block !important; }
+            #map { bottom: 240px; }
+            #info-banner { bottom: 190px; font-size: 14px; }
+            .control-btn { padding: 6px 10px; margin: 1px; font-size: 12px; }
+            #play-pause-btn-mobile { padding: 6px 8px; min-width: 80px; }
+            #county-filter-mobile, #speed-select-mobile { padding: 6px; font-size: 12px; }
+        }
+        
+        @media (max-width: 768px) and (orientation: landscape) {
+            #mobile-controls { height: 60px; padding: 8px 10px; bottom: 120px; }
+            #map { bottom: 220px; }
+            #info-banner { bottom: 180px; }
         }
         
         .leaflet-popup-content { font-size: 16px !important; min-width: 250px !important; }
@@ -34,12 +46,34 @@
 <body>
     <div id="loading">Loading contest data...</div>
     <div id="map"></div>
-    <div id="controls" style="display:none;">
+    <div id="info-banner" style="display:none;">
+        <span id="time-display">NYQP 2025</span>
+        <span id="qso-counter" style="margin-left: 20px;">QSOs: 0</span>
+    </div>
+    <div id="mobile-controls">
+        <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 8px;">
+            <span>Speed:</span>
+            <select id="speed-select-mobile" onchange="setSpeed(parseInt(this.value))" style="padding: 6px; font-size: 12px; border-radius: 5px; border: none; margin: 0 10px;">
+                <option value="100">100x</option>
+                <option value="500">500x</option>
+                <option value="1000" selected>1000x</option>
+                <option value="2000">2000x</option>
+            </select>
+            <span>Show:</span>
+            <select id="county-filter-mobile" onchange="filterMobiles()" style="padding: 6px; font-size: 12px; border-radius: 5px; border: none; margin-left: 10px;">
+                <option value="0">ALL</option>
+                <option value="5">5+ Counties</option>
+                <option value="10">10+ Counties</option>
+            </select>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 8px;">
+            <button id="play-pause-btn-mobile" class="control-btn">▶ Play</button>
+            <button id="reset-btn-mobile" class="control-btn">↺ Reset</button>
+        </div>
+        <input type="range" id="timeline-mobile" min="0" max="100" value="0" step="0.1" style="width: 100%;">
+    </div>
+    <div id="controls">
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
-            <div>
-                <span id="time-display">NYQP 2025</span>
-                <span id="qso-counter" style="margin-left: 20px; font-size: 16px;">QSOs: 0</span>
-            </div>
             <div>
                 <button id="play-pause-btn" class="control-btn">▶ Play</button>
                 <button id="reset-btn" class="control-btn">↺ Reset</button>
@@ -629,7 +663,9 @@
         let timelineData = timelineDataRaw.map(item => ({timestamp: item[0], county: item[1]}));
 
         document.getElementById('loading').style.display = 'none';
+        document.getElementById('info-banner').style.display = 'block';
         document.getElementById('controls').style.display = 'block';
+        document.getElementById('mobile-controls').style.display = 'block';
         initMap();
 
         function initMap() {
@@ -782,6 +818,7 @@
             }
             isPlaying = true;
             document.getElementById('play-pause-btn').innerHTML = '|| Pause';
+            document.getElementById('play-pause-btn-mobile').innerHTML = '|| Pause';
 
             const qsosPerTick = Math.max(1, Math.floor(animationSpeed / 100));
             
@@ -799,6 +836,7 @@
         function pause() {
             isPlaying = false;
             document.getElementById('play-pause-btn').innerHTML = '▶ Play';
+            document.getElementById('play-pause-btn-mobile').innerHTML = '▶ Play';
             clearInterval(animationInterval);
         }
 
@@ -872,6 +910,16 @@
             else play();
         });
         document.getElementById('reset-btn').addEventListener('click', reset);
+        
+        document.getElementById('play-pause-btn-mobile').addEventListener('click', () => {
+            if (isPlaying) pause();
+            else play();
+        });
+        document.getElementById('reset-btn-mobile').addEventListener('click', reset);
+        
+        document.getElementById('timeline-mobile').addEventListener('input', (e) => {
+            setProgress(parseFloat(e.target.value));
+        });
     </script>
 </body>
 </html>

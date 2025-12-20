@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>NYQP 2025 - Mobile Tracking</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+        body { margin: 0; padding: 0; font-family: Arial, sans-serif; }
+        #map { position: absolute; top: 0; bottom: 100px; left: 0; right: 0; background: white; }
+        #controls { position: absolute; bottom: 0; left: 0; right: 0; height: 100px; background: #2c3e50; color: white; padding: 15px; z-index: 1000; }
+        #timeline { width: 100%; margin-bottom: 10px; }
+        .control-btn { background: #3498db; border: none; color: white; padding: 10px 20px; margin: 0 5px; cursor: pointer; border-radius: 5px; font-size: 14px; font-weight: bold; }
+        .control-btn:hover { background: #2980b9; }
+        .control-btn:disabled { background: #7f8c8d; cursor: not-allowed; }
+        .control-btn.active { background: #27ae60; }
+        #time-display { font-size: 24px; font-weight: bold; margin-bottom: 10px; }
+        .mobile-marker { font-size: 32px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); }
+        #loading { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 20px; z-index: 2000; background: white; padding: 20px; border-radius: 10px; }
+        
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            #controls { height: 120px; padding: 10px; font-size: 14px; }
+            #time-display { font-size: 18px; }
+            .control-btn { padding: 8px 12px; margin: 2px; font-size: 12px; }
+            .mobile-marker { font-size: 36px; }
+            #map { bottom: 120px; }
+        }
+        
+        /* Larger popup text */
+        .leaflet-popup-content { font-size: 16px !important; min-width: 250px !important; }
+        .leaflet-popup-content-wrapper { padding: 15px !important; }
+    </style>
+</head>
+<body>
+    <div id="loading">Loading contest data...</div>
+    <div id="map"></div>
+    <div id="controls" style="display:none;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+            <div>
+                <span id="time-display">Ready - Watch K2A 🚙, N2T 🚐, K2V 🛻, N2CU 🚗</span>
+                <span id="qso-counter" style="margin-left: 20px; font-size: 16px;">QSOs: 0</span>
+            </div>
+            <div>
+                <button id="play-btn" class="control-btn">▶ Play</button>
+                <button id="pause-btn" class="control-btn" disabled>⏸ Pause</button>
+                <button id="reset-btn" class="control-btn">↺ Reset</button>
+                <span style="margin-left: 20px;">Speed:</span>
+                <button class="control-btn" onclick="setSpeed(100)">100x</button>
+                <button class="control-btn" onclick="setSpeed(500)">500x</button>
+                <button class="control-btn active" onclick="setSpeed(1000)">1000x</button>
+                <button class="control-btn" onclick="setSpeed(2000)">2000x</button>
+            </div>
+        </div>
+        <input type="range" id="timeline" min="0" max="100" value="0" step="0.1">
+    </div>
+    <script>
+        const map = L.map('map', {minZoom: 7, maxZoom: 10});
+        
+        const countyCoords = {
+            'ALB': [42.6526, -73.7562], 'ALL': [42.2579, -78.0286], 'BRM': [42.1648, -75.9147],
+            'CAT': [42.2348, -78.6697], 'CAY': [43.0148, -76.5658], 'CHA': [42.2348, -79.3947],
+            'CHE': [42.1348, -76.7947], 'CGO': [42.4948, -75.5247], 'CLI': [44.7348, -73.6947],
+            'COL': [42.2526, -73.6347], 'COR': [42.5948, -76.0058], 'DEL': [42.1979, -74.9658],
+            'DUT': [41.7648, -73.7447], 'ERI': [42.7648, -78.7447], 'ESS': [44.1148, -73.7647],
+            'FRA': [44.5948, -74.2947], 'FUL': [43.1126, -74.4347], 'GEN': [43.0026, -78.1947],
+            'GRE': [42.2926, -74.1347], 'HAM': [43.6426, -74.4647], 'HER': [43.4226, -74.9847],
+            'JEF': [44.0426, -75.9147], 'LEW': [43.7826, -75.4447], 'LIV': [42.7226, -77.7647],
+            'MAD': [42.9126, -75.6647], 'MON': [43.1548, -77.6158], 'MTG': [42.9026, -74.4447],
+            'NAS': [40.7282, -73.5893], 'NIA': [43.1948, -78.9947], 'ONE': [43.2326, -75.4347],
+            'ONO': [43.0048, -76.1447], 'ONT': [42.8526, -77.2847], 'ORA': [41.4026, -74.3047],
+            'ORL': [43.2526, -78.1947], 'OSW': [43.4626, -76.2047], 'OTS': [42.6326, -75.0347],
+            'SAR': [43.0826, -73.7847], 'SCH': [42.8126, -73.9347], 'SCO': [42.5926, -74.4447],
+            'SCU': [42.3926, -76.8747], 'SEN': [42.7826, -76.8147], 'STE': [42.2726, -77.3947],
+            'STL': [44.4926, -75.1647], 'SUL': [41.7026, -74.7647], 'TIO': [42.1526, -76.3247],
+            'TOM': [42.4526, -76.4747], 'ULS': [41.9226, -74.1647], 'WAR': [43.5726, -73.8347],
+            'WAS': [43.3126, -73.4347], 'WAY': [43.0626, -77.0847], 'WES': [41.1526, -73.7547],
+            'WYO': [42.7026, -78.2247], 'YAT': [42.6326, -77.0547]
+        };
+
+        const nameMap = {
+            'Albany':'ALB','Allegany':'ALL','Bronx':'BRX','Broome':'BRM','Cattaraugus':'CAT',
+            'Cayuga':'CAY','Chautauqua':'CHA','Chemung':'CHE','Chenango':'CGO','Clinton':'CLI',
+            'Columbia':'COL','Cortland':'COR','Delaware':'DEL','Dutchess':'DUT','Erie':'ERI',
+            'Essex':'ESS','Franklin':'FRA','Fulton':'FUL','Genesee':'GEN','Greene':'GRE',
+            'Hamilton':'HAM','Herkimer':'HER','Jefferson':'JEF','Kings':'KIN','Lewis':'LEW',
+            'Livingston':'LIV','Madison':'MAD','Monroe':'MON','Montgomery':'MTG','Nassau':'NAS',
+            'New York':'NEW','Niagara':'NIA','Oneida':'ONE','Onondaga':'ONO','Ontario':'ONT',
+            'Orange':'ORA','Orleans':'ORL','Oswego':'OSW','Otsego':'OTS','Putnam':'PUT',
+            'Queens':'QUE','Rensselaer':'REN','Richmond':'RIC','Rockland':'ROC','Saratoga':'SAR',
+            'Schenectady':'SCH','Schoharie':'SCO','Schuyler':'SCU','Seneca':'SEN',
+            'St. Lawrence':'STL','Steuben':'STE','Suffolk':'SUF','Sullivan':'SUL',
+            'Tioga':'TIO','Tompkins':'TOM','Ulster':'ULS','Warren':'WAR','Washington':'WAS',
+            'Wayne':'WAY','Westchester':'WES','Wyoming':'WYO','Yates':'YAT'
+        };
+
+        let countyLayers = {};
+        let countyCounts = {};
+        let mobileMarkers = {};
+        let currentIndex = 0;
+        let isPlaying = false;
+        let animationSpeed = 1000;
+        let animationInterval;
+        let timelineData, mobileTracks, boundaries;
+
+        Promise.all([
+            fetch('ny-counties-boundaries.json').then(r => r.json()),
+            fetch('timeline_compact.json').then(r => r.json()),
+            fetch('mobile_tracks.json').then(r => r.json())
+        ]).then(([b, t, m]) => {
+            boundaries = b;
+            timelineData = t.map(item => ({timestamp: item[0], county: item[1]}));
+            mobileTracks = m;
+            
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('controls').style.display = 'block';
+            initMap();
+        }).catch(err => {
+            document.getElementById('loading').textContent = 'Error: ' + err;
+        });
+
+        function initMap() {
+            const nyOutline = L.geoJSON(boundaries);
+            const bounds = nyOutline.getBounds();
+            map.fitBounds(bounds, {padding: [20, 20]});
+            map.setMaxBounds(bounds.pad(0.2));
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+            L.rectangle([[-90, -180], [90, 180]], {
+                color: 'white', fillColor: 'white', fillOpacity: 1, weight: 0, interactive: false
+            }).addTo(map);
+
+            const nyLayer = L.geoJSON(boundaries, {
+                style: () => ({fillColor: '#e8e8e8', weight: 2, color: '#666', fillOpacity: 0.6}),
+                onEachFeature: (f, layer) => {
+                    const c = nameMap[f.properties.NAME];
+                    countyLayers[c] = layer;
+                    countyCounts[c] = 0;
+                }
+            }).addTo(map);
+            nyLayer.bringToFront();
+
+            const mobileConfig = {
+                'K2A': {icon: '🚙', color: 'red'},
+                'N2T': {icon: '🚐', color: 'blue'},
+                'K2V': {icon: '🛻', color: 'gray'},
+                'N2CU': {icon: '🚗', color: 'orange'}
+            };
+
+            Object.keys(mobileConfig).forEach(call => {
+                if (mobileTracks[call] && mobileTracks[call].length > 0) {
+                    const firstCounty = mobileTracks[call][0].county;
+                    let coords;
+                    
+                    // Handle dual county (boundary position)
+                    if (firstCounty.includes('/')) {
+                        const counties = firstCounty.split('/');
+                        const c1 = countyCoords[counties[0]];
+                        const c2 = countyCoords[counties[1]];
+                        if (c1 && c2) {
+                            coords = [(c1[0] + c2[0]) / 2, (c1[1] + c2[1]) / 2];
+                        }
+                    } else {
+                        coords = countyCoords[firstCounty];
+                    }
+                    
+                    if (coords) {
+                        const marker = L.marker([coords[0], coords[1]], {
+                            icon: L.divIcon({
+                                html: `<div class="mobile-marker">${mobileConfig[call].icon}</div><div style="text-align:center; font-size:10px; font-weight:bold; color:${mobileConfig[call].color}; text-shadow: 1px 1px 2px white;">${call}</div>`,
+                                className: '',
+                                iconSize: [40, 40]
+                            }),
+                            zIndexOffset: 1000
+                        }).addTo(map);
+                        mobileMarkers[call] = {marker: marker, trackIndex: 0};
+                    }
+                }
+            });
+
+            document.getElementById('timeline').max = timelineData.length - 1;
+            document.getElementById('qso-counter').textContent = `QSOs: 0 / ${timelineData.length}`;
+        }
+
+        function getColor(count, max) {
+            if (!count) return '#e8e8e8';
+            const r = count / max;
+            if (r > 0.8) return '#8b0000';
+            if (r > 0.6) return '#d73027';
+            if (r > 0.4) return '#fc8d59';
+            if (r > 0.2) return '#fee08b';
+            if (r > 0.05) return '#ffffbf';
+            return '#e0f3f8';
+        }
+
+        function updateMobiles(timestamp) {
+            Object.keys(mobileMarkers).forEach(call => {
+                const track = mobileTracks[call];
+                const mobile = mobileMarkers[call];
+                
+                for (let i = mobile.trackIndex; i < track.length; i++) {
+                    if (track[i].timestamp <= timestamp) {
+                        const county = track[i].county;
+                        let coords;
+                        
+                        // Handle dual county (boundary)
+                        if (county.includes('/')) {
+                            const counties = county.split('/');
+                            const c1 = countyCoords[counties[0]];
+                            const c2 = countyCoords[counties[1]];
+                            if (c1 && c2) {
+                                coords = [(c1[0] + c2[0]) / 2, (c1[1] + c2[1]) / 2];
+                            }
+                        } else {
+                            coords = countyCoords[county];
+                        }
+                        
+                        if (coords) {
+                            mobile.marker.setLatLng([coords[0], coords[1]]);
+                            mobile.trackIndex = i;
+                        }
+                    } else {
+                        break;
+                    }
+                }
+            });
+        }
+
+        function updateMap(index) {
+            if (index >= timelineData.length) return;
+            
+            const qso = timelineData[index];
+            const county = qso.county;
+            
+            if (countyLayers[county]) {
+                countyCounts[county]++;
+                const maxCount = Math.max(...Object.values(countyCounts));
+                countyLayers[county].setStyle({
+                    fillColor: getColor(countyCounts[county], maxCount),
+                    fillOpacity: 0.8
+                });
+            }
+            
+            updateMobiles(qso.timestamp);
+            
+            document.getElementById('time-display').textContent = qso.timestamp.replace('2025-10-', 'Oct ').replace(' ', ' @ ');
+            document.getElementById('qso-counter').textContent = `QSOs: ${index + 1} / ${timelineData.length}`;
+            document.getElementById('timeline').value = index;
+            currentIndex = index;
+        }
+
+        function play() {
+            if (isPlaying || !timelineData) return;
+            isPlaying = true;
+            document.getElementById('play-btn').disabled = true;
+            document.getElementById('pause-btn').disabled = false;
+
+            const qsosPerTick = Math.max(1, Math.floor(animationSpeed / 100));
+            
+            animationInterval = setInterval(() => {
+                for (let i = 0; i < qsosPerTick; i++) {
+                    if (currentIndex >= timelineData.length - 1) {
+                        pause();
+                        return;
+                    }
+                    updateMap(currentIndex + 1);
+                }
+            }, 10);
+        }
+
+        function pause() {
+            isPlaying = false;
+            document.getElementById('play-btn').disabled = false;
+            document.getElementById('pause-btn').disabled = true;
+            clearInterval(animationInterval);
+        }
+
+        function reset() {
+            pause();
+            currentIndex = 0;
+            
+            Object.keys(countyCounts).forEach(county => {
+                countyCounts[county] = 0;
+                if (countyLayers[county]) {
+                    countyLayers[county].setStyle({fillColor: '#e8e8e8', fillOpacity: 0.6});
+                }
+            });
+
+            Object.keys(mobileMarkers).forEach(call => {
+                mobileMarkers[call].trackIndex = 0;
+                const firstCounty = mobileTracks[call][0].county;
+                let coords;
+                
+                if (firstCounty.includes('/')) {
+                    const counties = firstCounty.split('/');
+                    const c1 = countyCoords[counties[0]];
+                    const c2 = countyCoords[counties[1]];
+                    if (c1 && c2) {
+                        coords = [(c1[0] + c2[0]) / 2, (c1[1] + c2[1]) / 2];
+                    }
+                } else {
+                    coords = countyCoords[firstCounty];
+                }
+                
+                if (coords) {
+                    mobileMarkers[call].marker.setLatLng([coords[0], coords[1]]);
+                }
+            });
+
+            document.getElementById('time-display').textContent = 'Ready - Watch K2A 🚙, N2T 🚐, K2V 🛻, N2CU 🚗';
+            document.getElementById('qso-counter').textContent = 'QSOs: 0 / ' + timelineData.length;
+            document.getElementById('timeline').value = 0;
+        }
+
+        function setSpeed(speed) {
+            animationSpeed = speed;
+            document.querySelectorAll('.control-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            if (isPlaying) {
+                pause();
+                play();
+            }
+        }
+
+        document.getElementById('play-btn').addEventListener('click', play);
+        document.getElementById('pause-btn').addEventListener('click', pause);
+        document.getElementById('reset-btn').addEventListener('click', reset);
+    </script>
+</body>
+</html>

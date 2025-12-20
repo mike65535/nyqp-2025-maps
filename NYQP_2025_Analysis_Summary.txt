@@ -1,0 +1,64 @@
+NY QSO PARTY 2025 - LOG ANALYSIS SUMMARY
+=========================================
+
+PROCESSING DETAILS:
+- Total log files processed: 500+ Cabrillo format logs
+- Source folder: /home/mgilmer/Downloads/QSO_PARTIES/NYQP-2025/logs
+- Processing date: November 21, 2025
+
+OUTPUT FILES GENERATED:
+=======================
+
+1. tx_from_counties.csv
+   - QSOs transmitted FROM each county
+   - 111 unique locations (including non-NY)
+   - 60 NY counties with activity
+
+2. rx_to_counties.csv
+   - QSOs received TO each county
+   - 178 unique locations
+
+3. total_counties.csv
+   - Combined TX + RX activity per county
+   - Total QSO counts by location
+
+4. unique_callsigns_per_county.csv
+   - Unique callsigns worked from each county
+   - Includes full list of callsigns per county
+
+5. ny_qso_map.png
+   - Choropleth map of NY state
+   - Counties colored by TX activity (heat map)
+   - Yellow to Red color scale
+   - County boundaries clearly marked
+
+6. ny_qso_chart.png
+   - Bar chart of top 30 counties by TX activity
+   - Alternative visualization
+
+TOP 10 NY COUNTIES BY TX ACTIVITY:
+===================================
+1. Erie (ERI)         - 5,823 QSOs
+2. Onondaga (ONO)     - 4,910 QSOs
+3. Monroe (MON)       - 3,692 QSOs
+4. Niagara (NIA)      - 3,232 QSOs
+5. Richmond (RIC)     - 2,800 QSOs
+6. Suffolk (SUF)      - 2,449 QSOs
+7. Orange (ORA)       - 2,084 QSOs
+8. Ulster (ULS)       - 1,866 QSOs
+9. Steuben (STE)      - 1,767 QSOs
+10. Nassau (NAS)      - 1,494 QSOs
+
+STATISTICS:
+===========
+- Total NY counties with activity: 60 (out of 62 possible)
+- Total QSOs from NY counties: 57,885
+- Most active region: Western NY (Erie, Monroe, Niagara)
+- NYC metro area: Strong activity (Richmond, Suffolk, Nassau)
+
+NOTES:
+======
+- The map uses Census Bureau 2022 county boundaries
+- Color intensity represents QSO volume (darker = more activity)
+- Non-NY locations (DX, other states) are included in CSV files but not mapped
+- County codes follow standard NY QSO Party abbreviations

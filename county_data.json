@@ -1,0 +1,1199 @@
+{
+  "CAY": {
+    "qsos": 258,
+    "top5": [
+      {
+        "call": "K2FEO",
+        "qsos": 74
+      },
+      {
+        "call": "K2V",
+        "qsos": 62
+      },
+      {
+        "call": "N2T",
+        "qsos": 62
+      },
+      {
+        "call": "KV2X/M",
+        "qsos": 60
+      }
+    ]
+  },
+  "GRE": {
+    "qsos": 646,
+    "top5": [
+      {
+        "call": "N2SQW",
+        "qsos": 342
+      },
+      {
+        "call": "WA2GOT",
+        "qsos": 187
+      },
+      {
+        "call": "K2G",
+        "qsos": 89
+      },
+      {
+        "call": "W1WV/M",
+        "qsos": 18
+      },
+      {
+        "call": "K2IRM",
+        "qsos": 10
+      }
+    ]
+  },
+  "YAT": {
+    "qsos": 1290,
+    "top5": [
+      {
+        "call": "W2M",
+        "qsos": 1033
+      },
+      {
+        "call": "N2T",
+        "qsos": 115
+      },
+      {
+        "call": "K2Q",
+        "qsos": 94
+      },
+      {
+        "call": "K2V",
+        "qsos": 48
+      }
+    ]
+  },
+  "NAS": {
+    "qsos": 1494,
+    "top5": [
+      {
+        "call": "AH2O",
+        "qsos": 796
+      },
+      {
+        "call": "KS2G",
+        "qsos": 537
+      },
+      {
+        "call": "K2PTC",
+        "qsos": 160
+      },
+      {
+        "call": "WI2M",
+        "qsos": 1
+      }
+    ]
+  },
+  "MTG": {
+    "qsos": 171,
+    "top5": [
+      {
+        "call": "N2T",
+        "qsos": 82
+      },
+      {
+        "call": "N2JJ",
+        "qsos": 55
+      },
+      {
+        "call": "KD2YMM",
+        "qsos": 34
+      }
+    ]
+  },
+  "ERI": {
+    "qsos": 5779,
+    "top5": [
+      {
+        "call": "W2TB",
+        "qsos": 951
+      },
+      {
+        "call": "K2NV",
+        "qsos": 876
+      },
+      {
+        "call": "AA2ZW",
+        "qsos": 603
+      },
+      {
+        "call": "KM2L",
+        "qsos": 512
+      },
+      {
+        "call": "WW2P",
+        "qsos": 390
+      }
+    ]
+  },
+  "PUT": {
+    "qsos": 1050,
+    "top5": [
+      {
+        "call": "N2Y",
+        "qsos": 617
+      },
+      {
+        "call": "W2IG",
+        "qsos": 313
+      },
+      {
+        "call": "W2NY",
+        "qsos": 63
+      },
+      {
+        "call": "KQ2R",
+        "qsos": 36
+      },
+      {
+        "call": "WY1H",
+        "qsos": 21
+      }
+    ]
+  },
+  "WAY": {
+    "qsos": 117,
+    "top5": [
+      {
+        "call": "K2OEQ",
+        "qsos": 101
+      },
+      {
+        "call": "KV2X/M",
+        "qsos": 16
+      }
+    ]
+  },
+  "SCU": {
+    "qsos": 910,
+    "top5": [
+      {
+        "call": "K2EAG",
+        "qsos": 623
+      },
+      {
+        "call": "N3ARB",
+        "qsos": 142
+      },
+      {
+        "call": "N2T",
+        "qsos": 80
+      },
+      {
+        "call": "K2A",
+        "qsos": 38
+      },
+      {
+        "call": "AB1BL",
+        "qsos": 27
+      }
+    ]
+  },
+  "WAR": {
+    "qsos": 938,
+    "top5": [
+      {
+        "call": "NQ2W",
+        "qsos": 543
+      },
+      {
+        "call": "WB2SIH",
+        "qsos": 315
+      },
+      {
+        "call": "KC2KDD",
+        "qsos": 80
+      }
+    ]
+  },
+  "DEL": {
+    "qsos": 299,
+    "top5": [
+      {
+        "call": "K2G",
+        "qsos": 89
+      },
+      {
+        "call": "NY2A",
+        "qsos": 78
+      },
+      {
+        "call": "K2A",
+        "qsos": 63
+      },
+      {
+        "call": "N2T",
+        "qsos": 43
+      },
+      {
+        "call": "W1WV/M",
+        "qsos": 26
+      }
+    ]
+  },
+  "CHA": {
+    "qsos": 196,
+    "top5": [
+      {
+        "call": "N2CU",
+        "qsos": 100
+      },
+      {
+        "call": "KJ2LBR",
+        "qsos": 96
+      }
+    ]
+  },
+  "SCO": {
+    "qsos": 659,
+    "top5": [
+      {
+        "call": "NQ2U",
+        "qsos": 239
+      },
+      {
+        "call": "W2QL",
+        "qsos": 141
+      },
+      {
+        "call": "WB2KLD",
+        "qsos": 104
+      },
+      {
+        "call": "N2T",
+        "qsos": 70
+      },
+      {
+        "call": "K2A",
+        "qsos": 61
+      }
+    ]
+  },
+  "ORL": {
+    "qsos": 1131,
+    "top5": [
+      {
+        "call": "WA2QAU",
+        "qsos": 801
+      },
+      {
+        "call": "W2AAA",
+        "qsos": 124
+      },
+      {
+        "call": "K2Q",
+        "qsos": 92
+      },
+      {
+        "call": "N2CU",
+        "qsos": 81
+      },
+      {
+        "call": "KE2ELL",
+        "qsos": 33
+      }
+    ]
+  },
+  "JEF": {
+    "qsos": 87,
+    "top5": [
+      {
+        "call": "K2V",
+        "qsos": 87
+      }
+    ]
+  },
+  "ONE": {
+    "qsos": 235,
+    "top5": [
+      {
+        "call": "K2V",
+        "qsos": 99
+      },
+      {
+        "call": "N2T",
+        "qsos": 50
+      },
+      {
+        "call": "K2A",
+        "qsos": 41
+      },
+      {
+        "call": "KV2X/M",
+        "qsos": 41
+      },
+      {
+        "call": "KG2U",
+        "qsos": 4
+      }
+    ]
+  },
+  "ONO": {
+    "qsos": 4910,
+    "top5": [
+      {
+        "call": "N2MF",
+        "qsos": 1038
+      },
+      {
+        "call": "N2PP",
+        "qsos": 1013
+      },
+      {
+        "call": "KO8SCA",
+        "qsos": 875
+      },
+      {
+        "call": "W2PJ",
+        "qsos": 841
+      },
+      {
+        "call": "W2LC",
+        "qsos": 314
+      }
+    ]
+  },
+  "OSW": {
+    "qsos": 1152,
+    "top5": [
+      {
+        "call": "NM2A",
+        "qsos": 811
+      },
+      {
+        "call": "N1NQD",
+        "qsos": 269
+      },
+      {
+        "call": "N2T",
+        "qsos": 44
+      },
+      {
+        "call": "K2V",
+        "qsos": 28
+      }
+    ]
+  },
+  "SUF": {
+    "qsos": 2449,
+    "top5": [
+      {
+        "call": "K4RUM",
+        "qsos": 877
+      },
+      {
+        "call": "N2GA",
+        "qsos": 605
+      },
+      {
+        "call": "KC2KY",
+        "qsos": 416
+      },
+      {
+        "call": "KC2MBV",
+        "qsos": 242
+      },
+      {
+        "call": "N2PQJ",
+        "qsos": 148
+      }
+    ]
+  },
+  "COL": {
+    "qsos": 367,
+    "top5": [
+      {
+        "call": "WA2GOT",
+        "qsos": 107
+      },
+      {
+        "call": "W2HMT",
+        "qsos": 96
+      },
+      {
+        "call": "K2A",
+        "qsos": 93
+      },
+      {
+        "call": "KE2DEB",
+        "qsos": 64
+      },
+      {
+        "call": "KQ2R",
+        "qsos": 7
+      }
+    ]
+  },
+  "COR": {
+    "qsos": 177,
+    "top5": [
+      {
+        "call": "KD2CTZ",
+        "qsos": 116
+      },
+      {
+        "call": "K2A",
+        "qsos": 61
+      }
+    ]
+  },
+  "FRA": {
+    "qsos": 986,
+    "top5": [
+      {
+        "call": "WW2Y",
+        "qsos": 923
+      },
+      {
+        "call": "N2B",
+        "qsos": 63
+      }
+    ]
+  },
+  "WAS": {
+    "qsos": 96,
+    "top5": [
+      {
+        "call": "K2A",
+        "qsos": 62
+      },
+      {
+        "call": "K2IRK",
+        "qsos": 34
+      }
+    ]
+  },
+  "KIN": {
+    "qsos": 448,
+    "top5": [
+      {
+        "call": "WA2DE",
+        "qsos": 286
+      },
+      {
+        "call": "AD2MM",
+        "qsos": 162
+      }
+    ]
+  },
+  "HER": {
+    "qsos": 772,
+    "top5": [
+      {
+        "call": "W2CCC",
+        "qsos": 624
+      },
+      {
+        "call": "N2T",
+        "qsos": 107
+      },
+      {
+        "call": "K2A",
+        "qsos": 41
+      }
+    ]
+  },
+  "ONT": {
+    "qsos": 994,
+    "top5": [
+      {
+        "call": "WB2JLR",
+        "qsos": 587
+      },
+      {
+        "call": "N2CU",
+        "qsos": 162
+      },
+      {
+        "call": "K2Q",
+        "qsos": 83
+      },
+      {
+        "call": "N2T",
+        "qsos": 80
+      },
+      {
+        "call": "W2AN",
+        "qsos": 27
+      }
+    ]
+  },
+  "FUL": {
+    "qsos": 239,
+    "top5": [
+      {
+        "call": "W8NUD",
+        "qsos": 104
+      },
+      {
+        "call": "N2T",
+        "qsos": 71
+      },
+      {
+        "call": "N2JJ",
+        "qsos": 64
+      }
+    ]
+  },
+  "REN": {
+    "qsos": 588,
+    "top5": [
+      {
+        "call": "W2GDJ",
+        "qsos": 301
+      },
+      {
+        "call": "K2EP",
+        "qsos": 152
+      },
+      {
+        "call": "N1JP",
+        "qsos": 85
+      },
+      {
+        "call": "K2A",
+        "qsos": 50
+      }
+    ]
+  },
+  "SAR": {
+    "qsos": 1307,
+    "top5": [
+      {
+        "call": "N2ZX",
+        "qsos": 901
+      },
+      {
+        "call": "NJ1F",
+        "qsos": 134
+      },
+      {
+        "call": "KE1IH",
+        "qsos": 108
+      },
+      {
+        "call": "K2A",
+        "qsos": 102
+      },
+      {
+        "call": "WA3INC",
+        "qsos": 44
+      }
+    ]
+  },
+  "ULS": {
+    "qsos": 1866,
+    "top5": [
+      {
+        "call": "KX2NY",
+        "qsos": 1087
+      },
+      {
+        "call": "KE2SD",
+        "qsos": 412
+      },
+      {
+        "call": "N2MEE",
+        "qsos": 162
+      },
+      {
+        "call": "WA2GOT",
+        "qsos": 142
+      },
+      {
+        "call": "K2A",
+        "qsos": 32
+      }
+    ]
+  },
+  "ORA": {
+    "qsos": 2084,
+    "top5": [
+      {
+        "call": "N2Y",
+        "qsos": 714
+      },
+      {
+        "call": "K2AL",
+        "qsos": 564
+      },
+      {
+        "call": "N2RC",
+        "qsos": 515
+      },
+      {
+        "call": "KE2X",
+        "qsos": 187
+      },
+      {
+        "call": "K2A",
+        "qsos": 54
+      }
+    ]
+  },
+  "BRX": {
+    "qsos": 19,
+    "top5": [
+      {
+        "call": "KQ2R",
+        "qsos": 19
+      }
+    ]
+  },
+  "ALB": {
+    "qsos": 1368,
+    "top5": [
+      {
+        "call": "K2XA",
+        "qsos": 677
+      },
+      {
+        "call": "KM2O",
+        "qsos": 285
+      },
+      {
+        "call": "WA3AFS",
+        "qsos": 173
+      },
+      {
+        "call": "K2QY",
+        "qsos": 62
+      },
+      {
+        "call": "K2IW",
+        "qsos": 56
+      }
+    ]
+  },
+  "QUE": {
+    "qsos": 29,
+    "top5": [
+      {
+        "call": "KE2EEQ",
+        "qsos": 29
+      }
+    ]
+  },
+  "ALL": {
+    "qsos": 293,
+    "top5": [
+      {
+        "call": "N2CU",
+        "qsos": 168
+      },
+      {
+        "call": "K2Q",
+        "qsos": 125
+      }
+    ]
+  },
+  "GEN": {
+    "qsos": 382,
+    "top5": [
+      {
+        "call": "N2CU",
+        "qsos": 148
+      },
+      {
+        "call": "N2OA",
+        "qsos": 146
+      },
+      {
+        "call": "K2Q",
+        "qsos": 88
+      }
+    ]
+  },
+  "DUT": {
+    "qsos": 1136,
+    "top5": [
+      {
+        "call": "WA2JQK",
+        "qsos": 392
+      },
+      {
+        "call": "WA2NYY",
+        "qsos": 303
+      },
+      {
+        "call": "W2NTV",
+        "qsos": 227
+      },
+      {
+        "call": "K2A",
+        "qsos": 82
+      },
+      {
+        "call": "WA2GOT",
+        "qsos": 69
+      }
+    ]
+  },
+  "LIV": {
+    "qsos": 381,
+    "top5": [
+      {
+        "call": "N2CU",
+        "qsos": 168
+      },
+      {
+        "call": "KE2AIZ",
+        "qsos": 130
+      },
+      {
+        "call": "K2Q",
+        "qsos": 83
+      }
+    ]
+  },
+  "LEW": {
+    "qsos": 137,
+    "top5": [
+      {
+        "call": "K2V",
+        "qsos": 137
+      }
+    ]
+  },
+  "RIC": {
+    "qsos": 2800,
+    "top5": [
+      {
+        "call": "WA2CP",
+        "qsos": 1091
+      },
+      {
+        "call": "KR2AA",
+        "qsos": 704
+      },
+      {
+        "call": "WA2DNI",
+        "qsos": 695
+      },
+      {
+        "call": "N2TO",
+        "qsos": 190
+      },
+      {
+        "call": "KC2BBI",
+        "qsos": 120
+      }
+    ]
+  },
+  "MAD": {
+    "qsos": 296,
+    "top5": [
+      {
+        "call": "K2A",
+        "qsos": 91
+      },
+      {
+        "call": "N2PTF",
+        "qsos": 80
+      },
+      {
+        "call": "KV2X/M",
+        "qsos": 69
+      },
+      {
+        "call": "N2T",
+        "qsos": 40
+      },
+      {
+        "call": "K2V",
+        "qsos": 16
+      }
+    ]
+  },
+  "CLI": {
+    "qsos": 103,
+    "top5": [
+      {
+        "call": "N2B",
+        "qsos": 103
+      }
+    ]
+  },
+  "NEW": {
+    "qsos": 0,
+    "top5": []
+  },
+  "ESS": {
+    "qsos": 429,
+    "top5": [
+      {
+        "call": "K3GHH/2",
+        "qsos": 291
+      },
+      {
+        "call": "N2B",
+        "qsos": 80
+      },
+      {
+        "call": "WK2H",
+        "qsos": 58
+      }
+    ]
+  },
+  "WES": {
+    "qsos": 1406,
+    "top5": [
+      {
+        "call": "N2Y",
+        "qsos": 617
+      },
+      {
+        "call": "W2IG",
+        "qsos": 313
+      },
+      {
+        "call": "W2NYW",
+        "qsos": 165
+      },
+      {
+        "call": "WA2MCR",
+        "qsos": 165
+      },
+      {
+        "call": "WB2NVR",
+        "qsos": 80
+      }
+    ]
+  },
+  "SUL": {
+    "qsos": 287,
+    "top5": [
+      {
+        "call": "K0SID",
+        "qsos": 173
+      },
+      {
+        "call": "K2A",
+        "qsos": 92
+      },
+      {
+        "call": "W1WV/M",
+        "qsos": 22
+      }
+    ]
+  },
+  "HAM": {
+    "qsos": 146,
+    "top5": [
+      {
+        "call": "N2B",
+        "qsos": 82
+      },
+      {
+        "call": "N2JJ",
+        "qsos": 64
+      }
+    ]
+  },
+  "BRM": {
+    "qsos": 1057,
+    "top5": [
+      {
+        "call": "W2OW",
+        "qsos": 577
+      },
+      {
+        "call": "K2MV",
+        "qsos": 122
+      },
+      {
+        "call": "KE2EVX",
+        "qsos": 89
+      },
+      {
+        "call": "N2T",
+        "qsos": 86
+      },
+      {
+        "call": "KE2AUS",
+        "qsos": 80
+      }
+    ]
+  },
+  "MON": {
+    "qsos": 3605,
+    "top5": [
+      {
+        "call": "W2FU",
+        "qsos": 1452
+      },
+      {
+        "call": "K2SSS",
+        "qsos": 903
+      },
+      {
+        "call": "NN2L",
+        "qsos": 492
+      },
+      {
+        "call": "N2CU",
+        "qsos": 148
+      },
+      {
+        "call": "AC2RL",
+        "qsos": 144
+      }
+    ]
+  },
+  "CAT": {
+    "qsos": 1027,
+    "top5": [
+      {
+        "call": "N3KTA",
+        "qsos": 332
+      },
+      {
+        "call": "WA2CHV",
+        "qsos": 219
+      },
+      {
+        "call": "W2REA",
+        "qsos": 174
+      },
+      {
+        "call": "K2Q",
+        "qsos": 125
+      },
+      {
+        "call": "N2CU",
+        "qsos": 100
+      }
+    ]
+  },
+  "ROC": {
+    "qsos": 764,
+    "top5": [
+      {
+        "call": "N2Y",
+        "qsos": 714
+      },
+      {
+        "call": "W9TCV",
+        "qsos": 50
+      }
+    ]
+  },
+  "OTS": {
+    "qsos": 643,
+    "top5": [
+      {
+        "call": "AB3CX",
+        "qsos": 434
+      },
+      {
+        "call": "N2T",
+        "qsos": 92
+      },
+      {
+        "call": "K2A",
+        "qsos": 66
+      },
+      {
+        "call": "N2NKX",
+        "qsos": 51
+      }
+    ]
+  },
+  "SCH": {
+    "qsos": 437,
+    "top5": [
+      {
+        "call": "KD2DLL",
+        "qsos": 159
+      },
+      {
+        "call": "N2PEQ",
+        "qsos": 97
+      },
+      {
+        "call": "K2A",
+        "qsos": 94
+      },
+      {
+        "call": "N2JJ",
+        "qsos": 55
+      },
+      {
+        "call": "W2MRD",
+        "qsos": 20
+      }
+    ]
+  },
+  "CGO": {
+    "qsos": 333,
+    "top5": [
+      {
+        "call": "AD2TM",
+        "qsos": 192
+      },
+      {
+        "call": "N2NRV",
+        "qsos": 83
+      },
+      {
+        "call": "N2T",
+        "qsos": 58
+      }
+    ]
+  },
+  "STL": {
+    "qsos": 702,
+    "top5": [
+      {
+        "call": "WB2AMN",
+        "qsos": 656
+      },
+      {
+        "call": "K2V",
+        "qsos": 46
+      }
+    ]
+  },
+  "TIO": {
+    "qsos": 142,
+    "top5": [
+      {
+        "call": "K2A",
+        "qsos": 73
+      },
+      {
+        "call": "N2T",
+        "qsos": 69
+      }
+    ]
+  },
+  "NIA": {
+    "qsos": 3154,
+    "top5": [
+      {
+        "call": "KD2EFR",
+        "qsos": 805
+      },
+      {
+        "call": "K2ZR",
+        "qsos": 721
+      },
+      {
+        "call": "K2QB",
+        "qsos": 717
+      },
+      {
+        "call": "W2GR",
+        "qsos": 451
+      },
+      {
+        "call": "KE2EGF",
+        "qsos": 152
+      }
+    ]
+  },
+  "TOM": {
+    "qsos": 133,
+    "top5": [
+      {
+        "call": "K2A",
+        "qsos": 55
+      },
+      {
+        "call": "N2T",
+        "qsos": 46
+      },
+      {
+        "call": "AB1BL",
+        "qsos": 32
+      }
+    ]
+  },
+  "CHE": {
+    "qsos": 151,
+    "top5": [
+      {
+        "call": "N2T",
+        "qsos": 79
+      },
+      {
+        "call": "K2A",
+        "qsos": 51
+      },
+      {
+        "call": "K8TDF",
+        "qsos": 21
+      }
+    ]
+  },
+  "WYO": {
+    "qsos": 197,
+    "top5": [
+      {
+        "call": "N2CU",
+        "qsos": 139
+      },
+      {
+        "call": "K2Q",
+        "qsos": 44
+      },
+      {
+        "call": "W2BMT",
+        "qsos": 14
+      }
+    ]
+  },
+  "SEN": {
+    "qsos": 256,
+    "top5": [
+      {
+        "call": "W2JCT",
+        "qsos": 104
+      },
+      {
+        "call": "N2T",
+        "qsos": 85
+      },
+      {
+        "call": "K2V",
+        "qsos": 32
+      },
+      {
+        "call": "KV2X/M",
+        "qsos": 30
+      },
+      {
+        "call": "AB1BL",
+        "qsos": 5
+      }
+    ]
+  },
+  "STE": {
+    "qsos": 1673,
+    "top5": [
+      {
+        "call": "W2TZ",
+        "qsos": 679
+      },
+      {
+        "call": "N2PA",
+        "qsos": 631
+      },
+      {
+        "call": "N2CU",
+        "qsos": 162
+      },
+      {
+        "call": "N2T",
+        "qsos": 107
+      },
+      {
+        "call": "K2Q",
+        "qsos": 94
+      }
+    ]
+  }
+}
