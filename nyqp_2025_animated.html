@@ -920,7 +920,7 @@
         document.getElementById('reset-btn-mobile').addEventListener('click', reset);
         
         document.getElementById('timeline-mobile').addEventListener('input', (e) => {
-            setProgress(parseFloat(e.target.value));
+            updateMap(parseFloat(e.target.value));
         });
     </script>
 </body>
