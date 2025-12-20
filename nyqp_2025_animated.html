@@ -9,11 +9,9 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <style>
         body { margin: 0; padding: 0; font-family: Arial, sans-serif; }
-        #map { position: absolute; top: 0; bottom: 157px; left: 0; right: 0; background: white; }
-        #info-banner { position: absolute; bottom: 125px; left: 0; right: 0; height: 32px; background: #34495e; color: white; z-index: 1001; display: flex; align-items: center; padding: 4px 15px; }
-        #time-display { flex: 0 0 auto; }
-        #qso-counter { flex: 0 0 auto; margin-left: auto; white-space: nowrap; }
-        #mobile-controls { position: absolute; bottom: 100px; left: 0; right: 0; height: 80px; background: #2c3e50; color: white; padding: 15px 10px; z-index: 1000; display: none !important; }
+        #map { position: absolute; top: 0; bottom: 160px; left: 0; right: 0; background: white; }
+        #info-banner { position: absolute; bottom: 170px; left: 0; right: 0; height: 28px; background: #34495e; color: white; padding: 2px 15px; z-index: 1001; display: flex; align-items: center; justify-content: center; }
+        #mobile-controls { position: absolute; bottom: 100px; left: 0; right: 0; height: 80px; background: #2c3e50; color: white; padding: 15px 10px; z-index: 1000; display: none; }
         #controls { position: absolute; bottom: 0px; left: 0; right: 0; height: 100px; background: #2c3e50; color: white; padding: 15px; z-index: 1000; display: block; }
         #status-bar { display: none; }
         #timeline { width: 100%; margin-bottom: 10px; }
@@ -29,10 +27,7 @@
             #controls { display: none !important; }
             #mobile-controls { display: block !important; }
             #map { bottom: 240px; }
-            #info-banner { bottom: 200px; font-size: 14px; }
-            #time-display { font-size: 14px !important; }
-            #qso-counter { font-size: 14px !important; }
-            #mobile-controls span { font-size: 12px; }
+            #info-banner { bottom: 190px; font-size: 14px; }
             .control-btn { padding: 6px 10px; margin: 1px; font-size: 12px; }
             #play-pause-btn-mobile { padding: 6px 8px; min-width: 80px; }
             #county-filter-mobile, #speed-select-mobile { padding: 6px; font-size: 12px; }
@@ -51,9 +46,9 @@
 <body>
     <div id="loading">Loading contest data...</div>
     <div id="map"></div>
-    <div id="info-banner">
+    <div id="info-banner" style="display:none;">
         <span id="time-display">NYQP 2025</span>
-        <span id="qso-counter">QSOs: 0</span>
+        <span id="qso-counter" style="margin-left: 20px;">QSOs: 0</span>
     </div>
     <div id="mobile-controls">
         <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 8px;">
