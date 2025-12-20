@@ -21,7 +21,6 @@
         .mobile-marker { font-size: 32px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); }
         
         @media (max-width: 768px) {
-            .mobile-marker { font-size: 48px; } /* Much larger on mobile */
             .control-btn { padding: 14px 20px; margin: 3px; font-size: 16px; }
             #county-filter, #speed-select { padding: 10px; font-size: 15px; }
         }
@@ -634,7 +633,8 @@
         function initMap() {
             const nyOutline = L.geoJSON(boundaries);
             const bounds = nyOutline.getBounds();
-            map.fitBounds(bounds, {padding: [20, 20]});
+            const padding = window.innerWidth <= 768 ? [10, 10] : [20, 20]; // Less padding on mobile = more zoomed in
+            map.fitBounds(bounds, {padding: padding});
             map.setMaxBounds(bounds.pad(0.2));
 
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
