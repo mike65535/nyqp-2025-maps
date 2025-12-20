@@ -212,7 +212,7 @@ class MapBuilder:
 </body>
 </html>"""
         
-        output_file = self.output_dir / f"{self.config['state'].lower()}_interactive_map.html"
+        output_file = self.output_dir / "nyqp_2025_animated.html"
         with open(output_file, 'w') as f:
             f.write(html)
         
