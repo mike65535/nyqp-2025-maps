@@ -21,20 +21,25 @@
         #loading { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 20px; z-index: 2000; background: white; padding: 20px; border-radius: 10px; }
         
         @media (max-width: 768px) {
-            #controls { height: 180px; padding: 15px; font-size: 18px; }
-            #time-display { font-size: 18px; margin-bottom: 15px; }
-            .control-btn { padding: 20px 30px; margin: 4px; font-size: 20px; }
-            .mobile-marker { font-size: 36px; }
-            #map { bottom: 180px; }
-            #county-filter, #speed-select { padding: 15px; font-size: 18px; margin: 4px; border-radius: 8px; }
-            /* Stack controls vertically on mobile for more space */
-            #controls > div:first-child { margin-bottom: 15px; }
-            #controls > div:last-child { 
-                display: flex; 
-                flex-wrap: wrap; 
-                justify-content: center; 
-                gap: 8px; 
+            #controls { height: 200px; padding: 15px; font-size: 18px; }
+            #controls > div:first-child { 
+                flex-direction: column; 
+                align-items: flex-start !important; 
+                justify-content: flex-start !important;
             }
+            #controls > div:first-child > div:first-child { 
+                margin-bottom: 15px; 
+                width: 100%;
+            }
+            #controls > div:first-child > div:last-child { 
+                width: 100%; 
+                justify-content: center;
+            }
+            #time-display { font-size: 18px; }
+            .control-btn { padding: 18px 24px; margin: 3px; font-size: 18px; }
+            .mobile-marker { font-size: 36px; }
+            #map { bottom: 200px; }
+            #county-filter, #speed-select { padding: 12px; font-size: 16px; margin: 3px; border-radius: 8px; }
         }
         
         .leaflet-popup-content { font-size: 16px !important; min-width: 250px !important; }
@@ -45,12 +50,12 @@
     <div id="loading">Loading contest data...</div>
     <div id="map"></div>
     <div id="controls" style="display:none;">
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
-            <div>
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; flex-wrap: wrap;">
+            <div style="margin-bottom: 10px;">
                 <span id="time-display">NYQP 2025</span>
                 <span id="qso-counter" style="margin-left: 20px; font-size: 16px;">QSOs: 0</span>
             </div>
-            <div>
+            <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 8px;">
                 <button id="play-pause-btn" class="control-btn">▶ Play</button>
                 <button id="reset-btn" class="control-btn">↺ Reset</button>
                 <span style="margin-left: 15px;">Speed:</span>
