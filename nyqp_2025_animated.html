@@ -713,18 +713,19 @@
                 const scaleFactor = Math.pow(1.3, zoom - 7);
                 const newSize = Math.max(16, Math.min(80, baseSize * scaleFactor));
                 
-                console.log('Zoom:', zoom, 'New size:', newSize); // Debug
-                
                 // Update all mobile marker elements directly
                 const markers = document.querySelectorAll('.mobile-marker');
-                console.log('Found markers:', markers.length); // Debug
                 markers.forEach(marker => {
                     marker.style.fontSize = newSize + 'px';
+                    // Also try updating the parent leaflet marker
+                    const leafletMarker = marker.closest('.leaflet-marker-icon');
+                    if (leafletMarker) {
+                        leafletMarker.style.fontSize = newSize + 'px';
+                    }
                 });
             }
             
             map.on('zoomend', updateIconSizes);
-            // Delay initial call to ensure markers are created
             setTimeout(updateIconSizes, 1000);
         }
 
