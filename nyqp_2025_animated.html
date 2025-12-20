@@ -21,12 +21,15 @@
         #loading { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 20px; z-index: 2000; background: white; padding: 20px; border-radius: 10px; }
         
         @media (max-width: 768px) {
-            #controls { height: 140px; padding: 10px; font-size: 16px; }
-            #time-display { font-size: 18px; }
-            .control-btn { padding: 16px 32px; margin: 4px; font-size: 18px; }
+            #controls { height: 140px; padding: 8px; font-size: 16px; }
+            #time-display { font-size: 16px; }
+            .control-btn { padding: 14px 20px; margin: 2px; font-size: 16px; }
             .mobile-marker { font-size: 36px; }
             #map { bottom: 140px; }
-            #county-filter, #speed-select { padding: 12px; font-size: 16px; }
+            #county-filter, #speed-select { padding: 10px; font-size: 14px; margin: 0 2px; }
+            /* Tighter spacing on mobile */
+            #controls > div > div { margin-left: 10px !important; }
+            #controls span { margin-left: 10px !important; margin-right: 5px; }
         }
         
         .leaflet-popup-content { font-size: 16px !important; min-width: 250px !important; }
@@ -39,14 +42,14 @@
     <div id="controls" style="display:none;">
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
             <div>
-                <span id="time-display">Ready - Tracking 14 Mobile Stations</span>
+                <span id="time-display">NYQP 2025</span>
                 <span id="qso-counter" style="margin-left: 20px; font-size: 16px;">QSOs: 0</span>
             </div>
             <div>
                 <button id="play-pause-btn" class="control-btn">▶ Play</button>
                 <button id="reset-btn" class="control-btn">↺ Reset</button>
-                <span style="margin-left: 20px;">Speed:</span>
-                <select id="speed-select" onchange="setSpeed(parseInt(this.value))" style="padding: 8px; font-size: 14px; border-radius: 5px; border: none; margin-right: 20px;">
+                <span style="margin-left: 15px;">Speed:</span>
+                <select id="speed-select" onchange="setSpeed(parseInt(this.value))" style="padding: 8px; font-size: 14px; border-radius: 5px; border: none; margin-right: 15px;">
                     <option value="100">100x</option>
                     <option value="500">500x</option>
                     <option value="1000" selected>1000x</option>
@@ -835,7 +838,7 @@
                 }
             });
 
-            document.getElementById('time-display').textContent = 'Ready - Tracking 14 Mobile Stations';
+            document.getElementById('time-display').textContent = 'NYQP 2025';
             document.getElementById('qso-counter').textContent = 'QSOs: 0 / ' + timelineData.length;
             document.getElementById('timeline').value = 0;
         }
