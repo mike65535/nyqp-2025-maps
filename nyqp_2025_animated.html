@@ -27,7 +27,7 @@
             #controls { display: none !important; }
             #mobile-controls { display: block !important; }
             #map { bottom: 240px; }
-            #info-banner { bottom: 190px; font-size: 12px; }
+            #info-banner { bottom: 200px; font-size: 12px; }
             #time-display { font-size: 12px !important; }
             #qso-counter { font-size: 12px !important; }
             .control-btn { padding: 6px 10px; margin: 1px; font-size: 12px; }
@@ -920,7 +920,9 @@
         document.getElementById('reset-btn-mobile').addEventListener('click', reset);
         
         document.getElementById('timeline-mobile').addEventListener('input', (e) => {
-            updateMap(parseFloat(e.target.value));
+            const percentage = parseFloat(e.target.value);
+            const index = Math.floor((percentage / 100) * (timelineData.length - 1));
+            updateMap(index);
         });
     </script>
 </body>
